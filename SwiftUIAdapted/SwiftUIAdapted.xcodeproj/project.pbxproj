@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F4B30F0E2B51D4D50001AACB /* SwiftUIAdaptedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */; };
 		F4B30F122B51D4D80001AACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B30F112B51D4D80001AACB /* Assets.xcassets */; };
 		F4B30F152B51D4D80001AACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B30F142B51D4D80001AACB /* Preview Assets.xcassets */; };
+		F4B344A52B58330300E4EA6F /* adadapted-swift-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = F4B344A42B58330300E4EA6F /* adadapted-swift-sdk */; };
+		F4B344A72B58785200E4EA6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B344A62B58785200E4EA6F /* HomeView.swift */; };
 		F4BD16F82B57258800EB3795 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BD16F72B57258800EB3795 /* ShoppingListView.swift */; };
 		F4BD16FA2B5729E900EB3795 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BD16F92B5729E900EB3795 /* WebViewWrapper.swift */; };
 /* End PBXBuildFile section */
@@ -19,6 +21,7 @@
 		F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAdaptedApp.swift; sourceTree = "<group>"; };
 		F4B30F112B51D4D80001AACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4B30F142B51D4D80001AACB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F4B344A62B58785200E4EA6F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4BD16F72B57258800EB3795 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		F4BD16F92B5729E900EB3795 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B344A52B58330300E4EA6F /* adadapted-swift-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */,
+				F4B344A62B58785200E4EA6F /* HomeView.swift */,
 				F4BD16F72B57258800EB3795 /* ShoppingListView.swift */,
 				F4BD16F92B5729E900EB3795 /* WebViewWrapper.swift */,
 				F4B30F112B51D4D80001AACB /* Assets.xcassets */,
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = SwiftUIAdapted;
+			packageProductDependencies = (
+				F4B344A42B58330300E4EA6F /* adadapted-swift-sdk */,
+			);
 			productName = SwiftUIAdapted;
 			productReference = F4B30F0A2B51D4D50001AACB /* SwiftUIAdapted.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = F4B30F012B51D4D50001AACB;
+			packageReferences = (
+				F4B344A32B58330300E4EA6F /* XCLocalSwiftPackageReference "../../adadapted-swift-sdk" */,
+			);
 			productRefGroup = F4B30F0B2B51D4D50001AACB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4BD16F82B57258800EB3795 /* ShoppingListView.swift in Sources */,
+				F4B344A72B58785200E4EA6F /* HomeView.swift in Sources */,
 				F4B30F0E2B51D4D50001AACB /* SwiftUIAdaptedApp.swift in Sources */,
 				F4BD16FA2B5729E900EB3795 /* WebViewWrapper.swift in Sources */,
 			);
@@ -348,6 +360,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F4B344A32B58330300E4EA6F /* XCLocalSwiftPackageReference "../../adadapted-swift-sdk" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../adadapted-swift-sdk";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4B344A42B58330300E4EA6F /* adadapted-swift-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "adadapted-swift-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4B30F022B51D4D50001AACB /* Project object */;
 }

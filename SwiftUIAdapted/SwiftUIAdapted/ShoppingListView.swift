@@ -6,8 +6,31 @@
 //
 
 import SwiftUI
+import adadapted_swift_sdk
 
-struct ShoppingListView: View {
+struct ShoppingListView: View, ZoneViewListener, AdContentListener {
+    func onContentAvailable(zoneId: String, content: AddToListContent) {
+        let items = content.getItems()
+        
+        for item in items {
+            content.itemAcknowledge(item: item)
+            shoppingItems.append(item.title)
+        }
+        content.acknowledge()
+    }
+    
+    func onZoneHasAds(hasAds: Bool) {
+        
+    }
+    
+    func onAdLoaded() {
+        
+    }
+    
+    func onAdLoadFailed() {
+        
+    }
+    
     @State private var newItem = ""
     @State private var shoppingItems: [String] = ["Eggs", "Bread", "Oranges"]
     
@@ -21,10 +44,15 @@ struct ShoppingListView: View {
                     .onDelete(perform: removeItems)
                 }
                 
-                WebViewWrapper(urlString: "https://ad.img.qa.adadapted.dev/platform/ads/2800/6318/1212/102110.html?session_id=98ABF46426052F6692482BE92A8D6F0X65A6F388&udid=00000000-0000-0000-0000-000000000000")
-                    .frame(maxWidth: .infinity, maxHeight: 80)
-                    .background(Color.gray.opacity(0.5))
-                    //.padding()
+                //AA Zone Wrapper Setup
+                let aaZoneViewWrapper = AaZoneViewSwiftUIWrapper(zoneId: "102110", zoneListener: self, contentListener: self, width: Int(UIScreen.main.bounds.width), height: 80)
+                
+                aaZoneViewWrapper.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 80)
+                    .background(Color.clear)
+                    .onDisappear {
+                        aaZoneViewWrapper.shutdown(listener: self)
+                    }
+                //AA Zone Wrapper Setup
                 
                 HStack {
                     TextField("New Item", text: $newItem)
@@ -45,6 +73,10 @@ struct ShoppingListView: View {
             shoppingItems.append(newItem)
             newItem = ""
         }
+    }
+    
+    func addItemFromAd(itemName: String) {
+        shoppingItems.append(itemName)
     }
     
     func removeItems(at offsets: IndexSet) {
