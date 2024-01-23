@@ -51,6 +51,9 @@ struct ShoppingListView: View, ZoneViewListener, AdContentListener {
                     .background(Color.clear)
                     .onDisappear {
                         aaZoneViewWrapper.shutdown(listener: self)
+                    }.onAppear {
+                        //aaZoneViewWrapper.zoneView.setAdZoneContextId(contextId: "1201")
+                        //Call context set methods here^^^
                     }
                 //AA Zone Wrapper Setup
                 
