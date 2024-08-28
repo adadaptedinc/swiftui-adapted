@@ -54,7 +54,7 @@ struct ShoppingListView: View, ZoneViewListener, AdContentListener {
                     }.onAppear {
                         //aaZoneViewWrapper.zoneView.setAdZoneVisibility(isViewable: true)
                         //aaZoneViewWrapper.zoneView.setAdZoneContextId(contextId: "1201")
-                        //Call context set methods here^^^
+                        //call context set methods here^^^
                     }
                 //AA Zone Wrapper Setup
                 
