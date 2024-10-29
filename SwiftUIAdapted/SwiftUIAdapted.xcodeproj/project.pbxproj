@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42EABA22CCCA42200DE2C53 /* OffScreenZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42EABA12CCCA42200DE2C53 /* OffScreenZoneView.swift */; };
+		F496D2852CD083360052C7FC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F496D2842CD083360052C7FC /* PrivacyInfo.xcprivacy */; };
 		F4B30F0E2B51D4D50001AACB /* SwiftUIAdaptedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */; };
 		F4B30F122B51D4D80001AACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B30F112B51D4D80001AACB /* Assets.xcassets */; };
 		F4B30F152B51D4D80001AACB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B30F142B51D4D80001AACB /* Preview Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F42EABA12CCCA42200DE2C53 /* OffScreenZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffScreenZoneView.swift; sourceTree = "<group>"; };
+		F496D2842CD083360052C7FC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F4B30F0A2B51D4D50001AACB /* SwiftUIAdapted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIAdapted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAdaptedApp.swift; sourceTree = "<group>"; };
 		F4B30F112B51D4D80001AACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +64,9 @@
 				F4B30F0D2B51D4D50001AACB /* SwiftUIAdaptedApp.swift */,
 				F4B344A62B58785200E4EA6F /* HomeView.swift */,
 				F4BD16F72B57258800EB3795 /* ShoppingListView.swift */,
+				F42EABA12CCCA42200DE2C53 /* OffScreenZoneView.swift */,
 				F4BD16F92B5729E900EB3795 /* WebViewWrapper.swift */,
+				F496D2842CD083360052C7FC /* PrivacyInfo.xcprivacy */,
 				F4B30F112B51D4D80001AACB /* Assets.xcassets */,
 				F4B30F132B51D4D80001AACB /* Preview Content */,
 			);
@@ -141,6 +147,7 @@
 			files = (
 				F4B30F152B51D4D80001AACB /* Preview Assets.xcassets in Resources */,
 				F4B30F122B51D4D80001AACB /* Assets.xcassets in Resources */,
+				F496D2852CD083360052C7FC /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42EABA22CCCA42200DE2C53 /* OffScreenZoneView.swift in Sources */,
 				F4BD16F82B57258800EB3795 /* ShoppingListView.swift in Sources */,
 				F4B344A72B58785200E4EA6F /* HomeView.swift in Sources */,
 				F4B30F0E2B51D4D50001AACB /* SwiftUIAdaptedApp.swift in Sources */,

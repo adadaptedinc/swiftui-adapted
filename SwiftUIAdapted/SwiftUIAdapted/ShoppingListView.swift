@@ -33,6 +33,7 @@ struct ShoppingListView: View, ZoneViewListener, AdContentListener {
     
     @State private var newItem = ""
     @State private var shoppingItems: [String] = ["Eggs", "Bread", "Oranges"]
+    @State private var wrapperUUID = UUID()
     
     var body: some View {
         NavigationView {
@@ -43,20 +44,13 @@ struct ShoppingListView: View, ZoneViewListener, AdContentListener {
                     }
                     .onDelete(perform: removeItems)
                 }
-                
-                //AA Zone Wrapper Setup
-                let aaZoneViewWrapper = AaZoneViewSwiftUIWrapper(zoneId: "102110", zoneListener: self, contentListener: self, width: Int(UIScreen.main.bounds.width), height: 80)
-                
-                aaZoneViewWrapper.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 80)
-                    .background(Color.clear)
-                    .onDisappear {
-                        aaZoneViewWrapper.shutdown(listener: self)
-                    }.onAppear {
-                        //aaZoneViewWrapper.zoneView.setAdZoneVisibility(isViewable: true)
-                        //aaZoneViewWrapper.zoneView.setAdZoneContextId(contextId: "1201")
-                        //call context set methods here^^^
-                    }
-                //AA Zone Wrapper Setup
+                .refreshable {
+                    await refreshItems()
+                }
+                          
+                AaZoneViewSwiftUI(zoneId: "102110", zoneListener: self, contentListener: self)
+                    .id(wrapperUUID)
+                    .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
                 
                 HStack {
                     TextField("New Item", text: $newItem)
@@ -70,6 +64,10 @@ struct ShoppingListView: View, ZoneViewListener, AdContentListener {
             }
             .navigationTitle("Shopping List")
         }
+    }
+    
+    func refreshItems() async {
+        wrapperUUID = UUID()
     }
     
     func addItem() {
