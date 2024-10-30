@@ -10,9 +10,15 @@ import Combine
 import adadapted_swift_sdk
 
 class ShoppingListViewModel: ObservableObject, ZoneViewListener, AdContentListener {
-    func onZoneHasAds(hasAds: Bool) {}
-    func onAdLoaded() {}
-    func onAdLoadFailed() {}
+    func onZoneHasAds(hasAds: Bool) {
+        var check = hasAds
+    }
+    func onAdLoaded() {
+        var check = true
+    }
+    func onAdLoadFailed() {
+        var check = true
+    }
     
     func onContentAvailable(zoneId: String, content: AddToListContent) {
         let items = content.getItems()
@@ -22,6 +28,10 @@ class ShoppingListViewModel: ObservableObject, ZoneViewListener, AdContentListen
             addItemFromAd(itemName: item.title)
         }
         content.acknowledge()
+    }
+    
+    func onNonContentAction(zoneId: String, adId: String) {
+        var check = zoneId
     }
     
     @Published var shoppingItems: [String] = ["Eggs", "Bread", "Oranges"]

@@ -68,10 +68,10 @@
 				F4BD16F72B57258800EB3795 /* ShoppingListView.swift */,
 				F42EABA12CCCA42200DE2C53 /* OffScreenZoneView.swift */,
 				F4BD16F92B5729E900EB3795 /* WebViewWrapper.swift */,
+				F4B709C82CD148F20084B448 /* ShoppingListViewModel.swift */,
 				F496D2842CD083360052C7FC /* PrivacyInfo.xcprivacy */,
 				F4B30F112B51D4D80001AACB /* Assets.xcassets */,
 				F4B30F132B51D4D80001AACB /* Preview Content */,
-				F4B709C82CD148F20084B448 /* ShoppingListViewModel.swift */,
 			);
 			path = SwiftUIAdapted;
 			sourceTree = "<group>";
