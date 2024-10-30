@@ -19,8 +19,13 @@ struct HomeView: View {
                     Text("Go to List View")
                         .foregroundColor(.blue)
                         .font(.headline)
-                }
-                .padding()
+                }.padding()
+                
+                NavigationLink(destination: OffScreenZoneView()) {
+                    Text("Go to Off Screen View")
+                        .foregroundColor(.blue)
+                        .font(.headline)
+                }.padding()
 
                 Spacer()
             }
