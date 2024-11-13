@@ -48,7 +48,7 @@ struct ShoppingListView: View {
                     await refreshItems()
                 }
                 
-                AaZoneViewSwiftUI(zoneId: zoneId, zoneListener: viewModel, contentListener: viewModel, viewGroupId: "shopping_list_group")
+                AaZoneViewSwiftUI(zoneId: zoneId, zoneListener: viewModel, contentListener: viewModel)
                     .id(wrapperUUID)
                     .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
                 HStack {
