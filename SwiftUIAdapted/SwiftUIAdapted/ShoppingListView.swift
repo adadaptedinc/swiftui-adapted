@@ -25,7 +25,7 @@ struct ShoppingListView: View {
                     await refreshItems()
                 }
                 
-                AaZoneViewSwiftUI(zoneId: "102110", zoneListener: viewModel, contentListener: viewModel)
+                AaZoneViewSwiftUI(zoneId: "102110", zoneListener: viewModel, contentListener: viewModel) //102110 110003 101992
                     .id(wrapperUUID)
                     .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
                 
