@@ -8,7 +8,30 @@
 import SwiftUI
 import adadapted_swift_sdk
 
+struct ShoppingListTabView: View {
+    var body: some View {
+        TabView {
+            ShoppingListView(listName: "Groceries", zoneId: "102110")
+                .tabItem {
+                    Label("Groceries", systemImage: "cart")
+                }
+            
+            ShoppingListView(listName: "Household Items", zoneId: "110002")
+                .tabItem {
+                    Label("Household", systemImage: "house")
+                }
+            
+            ShoppingListView(listName: "Electronics", zoneId: "110003")
+                .tabItem {
+                    Label("Electronics", systemImage: "tv")
+                }
+        }
+    }
+}
+
 struct ShoppingListView: View {
+    let listName: String
+    let zoneId: String
     @StateObject private var viewModel = ShoppingListViewModel()
     @State private var wrapperUUID = UUID()
     
@@ -25,10 +48,9 @@ struct ShoppingListView: View {
                     await refreshItems()
                 }
                 
-                AaZoneViewSwiftUI(zoneId: "102110", zoneListener: viewModel, contentListener: viewModel) //102110 110003 101992
+                AaZoneViewSwiftUI(zoneId: zoneId, zoneListener: viewModel, contentListener: viewModel, viewGroupId: "shopping_list_group")
                     .id(wrapperUUID)
                     .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
-                
                 HStack {
                     TextField("New Item", text: $viewModel.newItem)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -39,18 +61,17 @@ struct ShoppingListView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Shopping List")
+            .navigationTitle(listName)
         }
     }
     
     func refreshItems() async {
         wrapperUUID = UUID()
-        //viewModel.refreshItems()
     }
 }
 
-struct ShoppingListView_Previews: PreviewProvider {
+struct ShoppingListTabView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingListView()
+        ShoppingListTabView()
     }
 }

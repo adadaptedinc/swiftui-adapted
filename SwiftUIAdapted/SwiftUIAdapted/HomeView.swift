@@ -15,13 +15,13 @@ struct HomeView: View {
                     .font(.headline)
                     .padding()
 
-                NavigationLink(destination: ShoppingListView()) {
+                NavigationLink(destination: ShoppingListTabView()) {
                     Text("Go to List View")
                         .foregroundColor(.blue)
                         .font(.headline)
                 }.padding()
                 
-                NavigationLink(destination: OffScreenZoneView()) {
+                NavigationLink(destination: OffScreenZoneTabView()) {
                     Text("Go to Off Screen View")
                         .foregroundColor(.blue)
                         .font(.headline)
