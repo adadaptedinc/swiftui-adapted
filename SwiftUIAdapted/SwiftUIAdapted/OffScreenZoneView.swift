@@ -10,17 +10,17 @@ import adadapted_swift_sdk
 struct OffScreenZoneTabView: View {
     var body: some View {
         TabView {
-            OffScreenZoneView(zoneId1: "102110", zoneId2: "110002", zoneContextId: "organic", title: "Organic")
+            OffScreenZoneView(zoneId1: "102110", zoneId2: "110002", zoneContextId: "", title: "Organic")
                 .tabItem {
                     Label("Organic", systemImage: "leaf")
                 }
             
-            OffScreenZoneView(zoneId1: "110003", zoneId2: "110004", zoneContextId: "organic", title: "Grocery")
+            OffScreenZoneView(zoneId1: "110003", zoneId2: "110004", zoneContextId: "", title: "Grocery")
                 .tabItem {
                     Label("Grocery", systemImage: "cart")
                 }
             
-            OffScreenZoneView(zoneId1: "110005", zoneId2: "110006", zoneContextId: "organic", title: "Electronics")
+            OffScreenZoneView(zoneId1: "110005", zoneId2: "110006", zoneContextId: "", title: "Electronics")
                 .tabItem {
                     Label("Electronics", systemImage: "tv")
                 }
@@ -28,9 +28,10 @@ struct OffScreenZoneTabView: View {
     }
 }
 
-struct OffScreenZoneView: View, ZoneViewListener, AdContentListener {
+struct OffScreenZoneView: View {
     @State private var isZoneViewOneVisible: Bool = false
     @State private var isZoneViewTwoVisible: Bool = false
+    @StateObject private var viewModel = ShoppingListViewModel()
     @State private var zoneContextId: String
     let zoneId1: String
     let zoneId2: String
@@ -43,26 +44,11 @@ struct OffScreenZoneView: View, ZoneViewListener, AdContentListener {
         self.title = title
     }
     
-    func onZoneHasAds(hasAds: Bool) {
-        var check = true
-    }
-    
-    func onAdLoaded() {
-        var check = true
-    }
-    
-    func onAdLoadFailed() {
-    }
-    
-    func onContentAvailable(zoneId: String, content: any AddToListContent) {
-        var check = content.getItems().count
-    }
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
                 if #available(iOS 18.0, *) {
-                    AaZoneViewSwiftUI(zoneId: zoneId1, zoneListener: self, contentListener: self, isZoneVisible: $isZoneViewOneVisible, zoneContextId: $zoneContextId)
+                    AaZoneViewSwiftUI(zoneId: zoneId1, zoneListener: viewModel, contentListener: viewModel, isZoneVisible: $isZoneViewOneVisible, zoneContextId: $zoneContextId)
                         .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
                         .onScrollVisibilityChange { isVisible in
                             isZoneViewOneVisible = isVisible
@@ -93,7 +79,7 @@ struct OffScreenZoneView: View, ZoneViewListener, AdContentListener {
             .padding()
             
             if #available(iOS 18.0, *) {
-                AaZoneViewSwiftUI(zoneId: zoneId2, zoneListener: self, contentListener: self, isZoneVisible: $isZoneViewTwoVisible)
+                AaZoneViewSwiftUI(zoneId: zoneId2, zoneListener: viewModel, contentListener: viewModel, isZoneVisible: $isZoneViewTwoVisible)
                     .frame(width: CGFloat(UIScreen.main.bounds.width), height: 80)
                     .onScrollVisibilityChange { isVisible in
                         isZoneViewTwoVisible = isVisible
